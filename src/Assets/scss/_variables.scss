@@ -1,0 +1,30 @@
+//COLORS
+$red:#da0a0a;
+$green: #33d5ba;
+$light-green:#f2fffd;
+$lighter-green:#d3efea;
+$black:#303030;
+$grey:#7a869a;
+$form-bg:#f6f6f6;
+$overlay:rgba(0, 0, 0, 0.16);
+$white-bg-banner:#E5E5E5;
+$lightgreen : #EBFFFB;
+$purewhite:#FFFFFF;
+//OTHERS
+$breakpoints: (
+    "phone-small":        320px,
+    "phone":        400px,
+    "phone-wide":   480px,
+    "phablet":      560px,
+    "tablet-small": 640px,
+    "tablet":       768px,
+    "fluid-out":960px,
+    "tablet-wide":  1024px,
+    "desktop":      1248px,
+    "desktop-med":  1350px,
+    "desktop-wide": 1440px,
+    "excess": 2000px
+);
+
+$menu-shadow: 0 0 10px rgba(0, 0, 0, 0.06), 0 4px 4px rgba(0, 0, 0, 0.12);
+$header-shadow:0px 2px 6px #d1d6de4d;

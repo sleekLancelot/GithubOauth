@@ -1,10 +1,16 @@
-import logo from './logo.svg';
 import './App.css';
+import { provider } from './config/uthMethod';
+import githubAuth from './service/auth';
 
 function App() {
+  const handle = async (provider) => {
+    const res = await githubAuth(provider)
+    console.log(res)
+  }
   return (
     <div className="App">
       <header className="App-header">
+        <button onClick={ () => handle(provider) } >github</button>
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
