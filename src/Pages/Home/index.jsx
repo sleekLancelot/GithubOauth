@@ -59,12 +59,25 @@ const Home = () => {
         <Profile />
         <div className='repos'>
 
-          <input
-            placeholder='Find a repository ...'
-            type="text" 
-            value={searchTerm} 
-            onChange={ filter }
-          />
+          <div className="filters">
+            <input
+              placeholder='Find a repository ...'
+              type="text" 
+              value={searchTerm} 
+              onChange={ filter }
+            />
+
+            <select name="type" id="type" disabled>
+              <option selected value="Type">Type</option>
+            </select>
+            <select name="language" id="language" disabled>
+              <option selected value="Language">Language</option>
+            </select>
+            <select name="sort" id="sort" disabled>
+              <option selected value="Sort">Sort</option>
+            </select>
+          </div>
+
 
           {
             repoStatus === 'RESOLVED' && repos ? 

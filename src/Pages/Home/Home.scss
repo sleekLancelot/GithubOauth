@@ -6,13 +6,40 @@
         display: flex;
         flex-basis: 30% 70%;
 
-        input {
-            text-align: left;
-            // width: 60%;
-            height: 40px;
+        .filters {
+            @include flex-btw;
             margin-top: 50px;
             margin-bottom: 25px;
-            border-color: $black;
+            
+            input {
+                flex-basis: 60%;
+                text-align: left;
+                // width: 60%;
+                min-width: 600px;
+                height: 30px;
+                border-color: $black;
+            }
+
+            select {
+                flex-basis: 10%;
+                min-width: 100px;
+                @include Buttons(_, $color: $black, $width: 50px );
+                // border-radius: 12px;
+                margin: auto 5px;
+                height: 30px;
+                &:disabled {
+                    color: $black;
+                }
+                &#language {
+                    flex-basis: 15%;
+                }
+                option {
+                    text-align: center;
+                    background: $grey;
+                    color: $black;
+                }
+            }
         }
+
     }
 }
