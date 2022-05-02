@@ -23,7 +23,7 @@
             select {
                 flex-basis: 10%;
                 min-width: 100px;
-                @include Buttons(_, $color: $black, $width: 50px );
+                @include Buttons($form-bg, $color: $black, $width: 50px );
                 // border-radius: 12px;
                 margin: auto 5px;
                 height: 30px;
@@ -41,5 +41,13 @@
             }
         }
 
+    }
+
+    .no_result {
+        margin: 50px auto;
+        p{
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
     }
 }

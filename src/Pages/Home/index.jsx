@@ -52,6 +52,53 @@ const Home = () => {
     }
   };
 
+  if ( searchTerm.trim() ) {
+    return (
+      <div className="home">
+      <div className="pageContent">
+        <Profile />
+        <div className='repos'>
+
+          <div className="filters">
+            <input
+              placeholder='Find a repository ...'
+              type="text" 
+              value={searchTerm} 
+              onChange={ filter }
+            />
+
+            <select name="type" id="type" disabled>
+              <option selected value="Type">Type</option>
+            </select>
+            <select name="language" id="language" disabled>
+              <option selected value="Language">Language</option>
+            </select>
+            <select name="sort" id="sort" disabled>
+              <option selected value="Sort">Sort</option>
+            </select>
+          </div>
+
+
+          {
+            results.length ? 
+            results.map( ( repo, index ) => (
+              <RepoCard
+                key={index}
+                repo={repo}
+              />
+            ) ) :
+            <div className='no_result'>
+              <hr />
+              <p>{`0 results for repositories matching ${searchTerm} sorted by last updated`}</p>
+              <hr />
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+    )
+  }
+
   
   return isAuthenticated && (
     <div className="home">
@@ -78,23 +125,21 @@ const Home = () => {
             </select>
           </div>
 
-
           {
-            repoStatus === 'RESOLVED' && repos ? 
-            searchTerm && results ? 
-            results.map( ( repo, index ) => (
-              <RepoCard
-                key={index}
-                repo={repo}
-              />
-            ) ) :
+            repoStatus === 'IDLE' || repoStatus === 'PENDING' ?
+            <Spinner /> :
+            repoStatus === 'RESOLVED' && repos.length ? 
             repos.map( ( repo, index ) => (
               <RepoCard
                 key={index}
                 repo={repo}
               />
             ) ) :
-            <Spinner />
+            <div className='no_result'>
+              <hr />
+              <p>{`${details?.login} does not have any repository yet`}</p>
+              <hr />
+            </div>
           }
         </div>
       </div>
