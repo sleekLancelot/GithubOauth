@@ -60,6 +60,15 @@
             }
         }
 
+        .star_graph {
+            display: grid;
+            grid-gap: 50px;
+
+            hr {
+                border: 1px solid $green;
+            }
+        }
+
         .star_select {
             // flex-basis: 25%;
             @include flex-btw;

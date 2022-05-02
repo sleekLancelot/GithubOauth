@@ -71,12 +71,16 @@ const RepoCard = ( { repo : {
             </div>
           </div>
 
-          <div className="star_select">
-            <div className='starDrop'>
-              <i className="fas fa-star"></i>
-              star
+          <div className="star_graph">
+            <div className="star_select">
+              <div className='starDrop'>
+                <i className="fas fa-star"></i>
+                star
+              </div>
+              <i className="fas fa-chevron-circle-down"></i>
             </div>
-            <i className="fas fa-chevron-circle-down"></i>
+
+            <hr />
           </div>
         </div>
     </div>
