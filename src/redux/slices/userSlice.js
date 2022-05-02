@@ -4,11 +4,47 @@ import axios from 'axios';
 const BaseURL = 'https://api.github.com/';
 
 const initialState = {
-  details : {},
+  details : null,
+
   repos: [],
+  repoStatus: 'IDLE',
+  repoError: '',
+
   isAuthenticated: null,
   loading: false,
 };
+
+export const getRepos = createAsyncThunk( 'getRepositories', async ( _, { getState , rejectWithValue, fulfillWithValue } ) =>
+{
+    const { details } = getState()?.user
+    const resp = await axios.get(
+      `${details.repos_url}`,
+      {
+        method: "GET",
+        // headers: authHeader(),
+      },
+    );
+
+    if ( resp.data )
+    {
+      const response = resp.data 
+      
+      if ( Array.isArray( response ) && response.length )
+      {
+        console.log(response, fulfillWithValue( response ))
+        return response
+          // return fulfillWithValue( response );
+
+      }
+
+      // return fulfillWithValue( [] );
+    }
+    else
+    {
+      return rejectWithValue( resp.error );
+    }
+
+} );
 
 export const UserSlice = createSlice( {
   name: 'user',
@@ -17,9 +53,47 @@ export const UserSlice = createSlice( {
     setProfile: ( state, action ) => {
       state.details = action.payload;
     },
+    setAuthentication: ( state, action ) => {
+      state.isAuthenticated = action.payload;
+    },
+  },
+  extraReducers: ( builder ) => {
+    builder
+      .addCase( getRepos.pending, ( state ) =>
+      {
+        state.repoStatus = 'PENDING';
+        state.cryptoWalletsError = "";
+      } )
+      .addCase( getRepos.fulfilled, ( state, action ) =>
+      {
+        console.log(action)
+        state.repoStatus = 'RESOLVED';
+        state.repos = action.payload;
+        state.repoError = "";
+      } )
+      .addCase( getRepos.rejected, ( state, action ) =>
+      {
+        state.repoStatus = 'REJECTED';
+        state.repoError = action.payload;
+      } )
   }
+  // {
+  //   [getRepos.pending]: ( state ) => {
+  //     state.repoStatus = 'PENDING';
+  //     state.cryptoWalletsError = "";
+  //   },
+  //   [getRepos.fulfilled]: ( state, action ) => {
+  //     state.repoStatus = 'RESOLVED';
+  //     state.repos = action.payload;
+  //     state.repoError = "";
+  //   },
+  //   [getRepos.rejected]: ( state, action ) => {
+  //     state.repoStatus = 'REJECTED';
+  //     state.repoError = action.payload;
+  //   },
+  // },
 } )
 
-export const { setProfile } = UserSlice.actions;
+export const { setProfile, setAuthentication } = UserSlice.actions;
 
-export default UserSlice.reducer;
+export const UserReducer = UserSlice.reducer;

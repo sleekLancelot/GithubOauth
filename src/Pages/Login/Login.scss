@@ -1,1 +1,35 @@
-@import '../../Assets/scss/mixin.scss';
+@import '../../Assets/scss/index.scss';
+
+.login{
+    .content{
+        @include flex-center($direction: column);
+        width: 400px;
+        height: 300px;
+        position: relative;
+        margin: auto;
+        transform: translateY(50%);
+        background: $form-bg;
+        border: 1px solid $grey;
+        border-radius: 10px;
+        i.fab{
+            font-size: 4rem;
+            margin-bottom: 10px;
+            &:hover{
+                cursor: pointer;
+                transform: rotate3d(0, 1, 0.5, 3.142rad);
+                transition: all 0.29s ease-in;
+            }
+        }
+        button{
+            @include Buttons($black, $purewhite);
+            text-align: center;
+            margin-top: 10px;
+
+            &:hover{
+                background: #000;
+                box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 30px;
+                transition: all 0.29s ease-in;
+            }
+        }
+    }
+}
