@@ -23,7 +23,7 @@
                     margin-right: 20px;
                 }
                 .status {
-                    @include Buttons(_, $color: $grey, $width: 50px );
+                    @include Buttons(_, $color: rgb(105, 104, 104), $width: 50px );
                     border-radius: 12px;
                     height: 20px;
                 }
@@ -72,13 +72,13 @@
         .star_select {
             // flex-basis: 25%;
             @include flex-btw;
-            @include Buttons(_, $color: $grey, $width: 100px );
+            @include Buttons(_, $color: rgb(105, 104, 104), $width: 100px );
             // justify-content: space-around;
             height: 30px;
             .starDrop {
                 padding-top: 3px;
                 padding-right: 5px;
-                border-right: 1px solid $grey;
+                border-right: 1px solid $border-color;
                 height: 100%;
             }
             i {

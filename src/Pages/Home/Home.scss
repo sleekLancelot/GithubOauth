@@ -17,14 +17,15 @@
                 // width: 60%;
                 min-width: 600px;
                 height: 30px;
-                border-color: $black;
+                // border-color: $black;
+                border-color: $border-color;
             }
 
             select {
                 flex-basis: 10%;
                 min-width: 100px;
                 @include Buttons($form-bg, $color: $black, $width: 50px );
-                // border-radius: 12px;
+                border-color: $border-color;
                 margin: auto 5px;
                 height: 30px;
                 &:disabled {

@@ -114,14 +114,14 @@ const Home = () => {
               onChange={ filter }
             />
 
-            <select name="type" id="type" disabled>
-              <option selected value="Type">Type</option>
+            <select defaultValue={'Type'} name="type" id="type" disabled>
+              <option value="Type">Type</option>
             </select>
-            <select name="language" id="language" disabled>
-              <option selected value="Language">Language</option>
+            <select defaultValue={'Language'} name="language" id="language" disabled>
+              <option value="Language">Language</option>
             </select>
-            <select name="sort" id="sort" disabled>
-              <option selected value="Sort">Sort</option>
+            <select defaultValue={'Sort'} name="sort" id="sort" disabled>
+              <option value="Sort">Sort</option>
             </select>
           </div>
 
