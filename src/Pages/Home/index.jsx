@@ -43,7 +43,7 @@ const Home = () => {
         <Profile />
         <div className='repos'>
           {
-            repos ? 
+            repoStatus === 'RESOLVED' && repos ? 
             repos.map( ( repo, index ) => (
               <RepoCard
                 key={index}

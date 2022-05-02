@@ -1,9 +1,11 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import spinner from './spinner.gif';
 
 function Spinner() {
     return (
-        <Fragment>
+        <div style={{
+            transform: 'translate(100%, 80%)',
+        }}>
             <img 
                 alt='loading' 
                 src={spinner} 
@@ -14,7 +16,7 @@ function Spinner() {
                     backgroundColor: 'inherit'
                 }}
             />
-        </Fragment>
+        </div>
     )
 }
 
