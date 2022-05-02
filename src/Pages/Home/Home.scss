@@ -1,9 +1,18 @@
-@import '../../Assets/scss/mixin.scss';
+@import '../../Assets/scss/index.scss';
 
 .home {
-    margin: 10px 50px 10px;
+    margin: 20px 50px 10px;
     .pageContent {
         display: flex;
         flex-basis: 30% 70%;
+
+        input {
+            text-align: left;
+            // width: 60%;
+            height: 40px;
+            margin-top: 50px;
+            margin-bottom: 25px;
+            border-color: $black;
+        }
     }
 }

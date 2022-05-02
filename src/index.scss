@@ -42,6 +42,16 @@ button:not(:disabled):hover {
 }
 
 input {
+  width: 100%;
+  font-family: "Raleway", "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+    sans-serif;
+  color: #303030;
+  display: block;
+  padding: 15.5px 12px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 1px solid rgba(53, 120, 229, 0.1);
+  // background-color: #ffffff;
   outline: none;
 }
 
