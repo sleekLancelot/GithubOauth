@@ -1,8 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const BaseURL = 'https://api.github.com/';
-
 const initialState = {
   details : null,
 
@@ -31,10 +29,7 @@ export const getRepos = createAsyncThunk( 'getRepositories', async ( _, { getSta
       
       if ( Array.isArray( response ) && response.length )
       {
-        console.log(response, fulfillWithValue( response ))
-        return response
-          // return fulfillWithValue( response );
-
+        return fulfillWithValue( response );
       }
 
       // return fulfillWithValue( [] );
@@ -66,7 +61,6 @@ export const UserSlice = createSlice( {
       } )
       .addCase( getRepos.fulfilled, ( state, action ) =>
       {
-        console.log(action)
         state.repoStatus = 'RESOLVED';
         state.repos = action.payload;
         state.repoError = "";

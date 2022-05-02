@@ -24,6 +24,7 @@
             @include Buttons($black, $purewhite);
             text-align: center;
             margin-top: 10px;
+            border-width: 2px;
 
             &:hover{
                 background: #000;

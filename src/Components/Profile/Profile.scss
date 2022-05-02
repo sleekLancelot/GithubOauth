@@ -1,0 +1,73 @@
+@import '../../Assets/scss/index';
+
+.profile {
+    margin-right: 30px;
+    .avatar_box {
+        width: 300px;
+        height: 300px;
+        img{
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;  
+            object-fit: contain;  
+        }
+    }
+
+    .otherInfo {
+        margin-top: 15px;
+        font-size: 16px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+
+        .fade{
+            color: $grey;
+        }
+
+        .names {
+            margin-bottom: 10px;
+        }
+
+        .follow {
+            @include Buttons( $white-bg-banner, $black );
+            width: 100%;
+            height: 35px;
+            margin: 10px auto;
+            border-radius: 5px;
+            border-color: azure;
+            box-shadow: $grey 0px 1px 3px;
+        }
+
+        .f_and_f {
+            margin-top: 10px;
+            margin-bottom: 15px;
+            .num {
+                font-weight: 600;
+                font-size: 15px;
+                margin-left: 5px;
+                margin-right: 5px;
+            }
+        }
+
+        .contacts {
+            margin-bottom: 20px;
+            i{
+                &.fa-map-marker-alt {
+                    margin-right: 6px;
+                }
+            }
+            .word {
+                margin-left: 15px;
+            }
+        }
+
+        .extra {
+            margin-top: 10px;
+            img {
+                width: 70px;
+                height: 70px;
+            }
+        }
+
+    }
+}

@@ -1,0 +1,83 @@
+@import '../../Assets/scss/index.scss';
+
+.repo_card {
+    width: 100%;
+    .content {
+        flex-basis: 75%;
+        cursor: pointer;
+        @include flex-btw;
+        margin: 45px 5px;
+
+        .info {
+            @include flex-btw(column);
+            align-items: flex-start;
+            .name_and_status{
+                display: flex;
+                align-items: center;
+
+                .name{
+                    color: $blue;
+                    font-size: 20px;
+                    font-weight: 700;
+                    margin-right: 20px;
+                }
+                .status {
+                    @include Buttons(_, $color: $grey, $width: 50px );
+                    border-radius: 12px;
+                    height: 20px;
+                }
+            }
+
+            .description {
+                width: 65%;
+                color: $grey;
+                font-size: 16px;
+                font-weight: 500;
+                margin-top: 10px;
+                margin-bottom: 15px;
+            }
+
+            .otherInfo{
+                @include flex-btw;
+                color: $grey;
+                margin-top: 10px;
+                .r_info{
+                    margin-right: 30px;
+                    .language {
+                        display: flex;
+                        align-items: center;
+                    }
+                    .circle {
+                        display: inline-block;
+                        margin-right: 5px;
+                        width: 10px;
+                        height: 10px;
+                        border-radius: 50%;
+                        background-color: #4169E1;
+                    }
+                }
+            }
+        }
+
+        .star_select {
+            // flex-basis: 25%;
+            @include flex-btw;
+            @include Buttons(_, $color: $grey, $width: 100px );
+            // justify-content: space-around;
+            height: 30px;
+            .starDrop {
+                padding-top: 3px;
+                padding-right: 5px;
+                border-right: 1px solid $grey;
+                height: 100%;
+            }
+            i {
+                margin: 5px;
+            }
+        }
+    }
+
+    .fade {
+        color: $grey;
+    }
+}

@@ -10,7 +10,7 @@ import {
   setProfile, 
   setAuthentication,
 } from '../../redux/slices/userSlice'
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 const Login = () => {
   const dispatch = useDispatch()
