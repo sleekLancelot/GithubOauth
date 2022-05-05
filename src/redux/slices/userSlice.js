@@ -16,7 +16,7 @@ export const getRepos = createAsyncThunk( 'getRepositories', async ( _, { getSta
 {
     const { details } = getState()?.user
     const resp = await axios.get(
-      `${details.repos_url}`,
+      `${details.repos_url}?per_page=20&sort=created:asc`,
       {
         method: "GET",
         // headers: authHeader(),

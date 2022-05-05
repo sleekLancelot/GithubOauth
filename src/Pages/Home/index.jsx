@@ -126,20 +126,22 @@ const Home = () => {
           </div>
 
           {
-            repoStatus === 'IDLE' || repoStatus === 'PENDING' ?
+            ( repoStatus === 'IDLE' || repoStatus === 'PENDING' ) && !repos.length ?
             <Spinner /> :
-            repoStatus === 'RESOLVED' && repos.length ? 
+            repoStatus === 'RESOLVED' && !!repos.length ? 
             repos.map( ( repo, index ) => (
               <RepoCard
                 key={index}
                 repo={repo}
               />
             ) ) :
+            repoStatus === 'RESOLVED' && !repos.length ?
             <div className='no_result'>
               <hr />
               <p>{`${details?.login} does not have any repository yet`}</p>
               <hr />
-            </div>
+            </div> :
+            null
           }
         </div>
       </div>

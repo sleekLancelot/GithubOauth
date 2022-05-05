@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 
 import { provider } from '../../config/authMethod'
@@ -11,14 +11,19 @@ import {
   setAuthentication,
 } from '../../redux/slices/userSlice'
 import { useDispatch } from 'react-redux';
+import Loader from '../../Components/loading';
 
 const Login = () => {
+  const [ loading, setLoading ] = useState( null )
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
   const login = async (provider) => {
+    setLoading( true )
     githubAuth( provider )
     .then( res => {
+      setLoading( false )
+
       if ( res.user ) {
         localStorage.setItem("auth", JSON.stringify({
           accessToken: res._tokenResponse.oauthAccessToken,
@@ -47,7 +52,9 @@ const Login = () => {
           onClick={() => {
             login( provider )
           }}
-        >Login with Github</button>
+        >
+          {loading && <Loader light />} Login with Github
+        </button>
       </div>
     </div>
   )
