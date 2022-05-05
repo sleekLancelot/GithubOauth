@@ -1,9 +1,16 @@
 import React from 'react'
+import { useSelector } from 'react-redux';
+
 import './Nav.scss'
 
-const Nav = ({
-  public_repos,
-}) => {
+const Nav = ({ }) => {
+
+  const { 
+    details: {
+      public_repos,
+    },
+  } = useSelector((store) => store.user);;
+
   const navItems = [
     {
       icon: <i className="fas fa-book-open"></i>,
@@ -13,9 +20,10 @@ const Nav = ({
       icon: <i className="fas fa-box"></i>,
       label: 'Repositories',
       count: public_repos,
+      className: 'active',
     },
     {
-      icon: <i className="far fa-border-all"></i>,
+      icon: <i className="fas fa-border-all"></i>,
       label: 'projects',
     },
     {
@@ -35,20 +43,22 @@ const Nav = ({
           navItems.map( ( item, index ) => (
             <li
               key={index}
-              className="link"
+              className={`link ${item.className ? item.className : ''}`}
             >
               {
                 item.icon && item.icon
               }
-              <span>{item.label}</span>
+              <span className='label'>{item.label}</span>
               {
                 !!item.count &&
-                <span>{item.count}</span>
+                <span className='count'>{item.count}</span>
               }
             </li>
           ))
         }
       </ul>
+
+      <hr />
     </div>
   )
 }

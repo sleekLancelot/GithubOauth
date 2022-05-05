@@ -8,6 +8,7 @@ import './Home.scss'
 import Profile from '../../Components/Profile/Profile';
 import RepoCard from '../../Components/Repo/RepoCard';
 import Spinner from '../../Components/spinner';
+import Nav from '../../Layout/Nav';
 
 const Home = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -55,6 +56,7 @@ const Home = () => {
   if ( searchTerm.trim() ) {
     return (
       <div className="home">
+        <Nav />
       <div className="pageContent">
         <Profile />
         <div className='repos'>
@@ -102,6 +104,7 @@ const Home = () => {
   
   return isAuthenticated && (
     <div className="home">
+      <Nav />
       <div className="pageContent">
         <Profile />
         <div className='repos'>

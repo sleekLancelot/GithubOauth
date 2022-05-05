@@ -22,8 +22,6 @@ const Login = () => {
     setLoading( true )
     githubAuth( provider )
     .then( res => {
-      setLoading( false )
-
       if ( res.user ) {
         localStorage.setItem("auth", JSON.stringify({
           accessToken: res._tokenResponse.oauthAccessToken,
@@ -31,6 +29,8 @@ const Login = () => {
 
         getUser()
         .then( res => {
+          setLoading( false )
+
           // console.log(res)
           dispatch( setProfile( res.data ) )
           dispatch( setAuthentication( true ) )
