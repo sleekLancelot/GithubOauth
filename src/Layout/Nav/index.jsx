@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 
 import './Nav.scss'
 
-const Nav = ({ }) => {
+const Nav = ( ) => {
 
   const { 
     details: {
